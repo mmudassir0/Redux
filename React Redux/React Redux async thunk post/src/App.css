@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: rgb(212, 212, 212);
+}
+
+#nav {
+  background-color: cadetblue;
+  padding: 10px;
+  color: aliceblue;
+}
+#post-list {
+  background-color: rgb(255, 255, 255);
+  max-width: 80%;
+  margin: auto;
+  padding: 2px;
+}
