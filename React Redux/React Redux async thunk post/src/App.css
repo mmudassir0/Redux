@@ -12,7 +12,8 @@ body {
 }
 #post-list {
   background-color: rgb(255, 255, 255);
-  max-width: 80%;
+  max-width: 70%;
   margin: auto;
-  padding: 2px;
+  padding: 2px 5px;
+  margin-bottom: 10px;
 }
