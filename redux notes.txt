@@ -1,0 +1,86 @@
+redux terminologies
+1:Action		they are medium by which all changes are communicated within redux app
+2:Reducers		it is an event listener which handle events based on action type
+			A reducer is a functon that recive initial state and action object and decide how to update based on action and return new state
+3:Store			store app data
+
+store methods:
+getstate() 		return the current state
+dispatch()		trigger the state change 	this is the way of calling function from action
+subscribe()		listen to change only		to see data in store we listen using subscribe
+
+Action vs Action creater	create and return action		action is js object
+action properties: it is js object, it has type field, it can accept extra payload property, a function that return action is called action creater
+
+reducer properties
+1:new state value calculatetd by based on state and action argument
+2:it not allow to modify existing state
+
+
+steps counter projects
+1:initial state 2:action - action creater 3:reducer 4:store 5:getstate 6:dispatch
+
+
+#initial state
+const initialState={count:0}
+
+#action
+const increment = () => {
+  return {
+    type: "INCREMENT",
+  };
+};
+
+#reducer
+const Reducer=(state,action)=>{
+if(action.type===INCREMENT){
+return{
+count:state.count+1
+}}
+
+#store
+const {createStore}=require("redux")
+const store=createStore(Reducer)
+
+#getstate
+store.subscribe(() => {
+  const stateData = store.getState();
+  console.log(stateData);
+});
+
+#dispatch
+store.dispatch(action)
+
+--------------------------------------------------------------------------------------
+#middleware
+=> middleware ids use to handle the action
+=>dispatch new action
+=> we use middleware where reducer can't only give complete information
+
+=> redux-logger @middleware
+
+redux thunk =>middleware that are use in asynchronous action
+redux thunk is a function (action creater) that return a function
+
+for making http request we have three things =>1: data 2: error 3: loading=false
+
+------------------------------------------------------------------------------------
+React Redux
+useSelector()		to get data from store
+useDispatch()		to dispatch action
+
+
+------------------------------------------------------------
+redux toolkit
+common api use in RTK are 
+1:createAction =>action creater + action type
+2:cteate Reducer  =>no switch statement
+3:createSlice =>createACtion + createReducer => to generate action and reducer
+4:CreateAsyncThunk => handle async action
+5:configureStore => craete store
+
+
+
+
+
+
